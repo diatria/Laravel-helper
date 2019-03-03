@@ -13,8 +13,8 @@ class Response
         return [
             'status' => $this->responseType,
             'code'=> $this->responseCode,
+            'message' => !empty($arrayData['message']) ? $arrayData['message'] : '',
             'data' => !empty($arrayData['data']) ? $arrayData['data'] : [],
-            'message' => !empty($arrayData['message']) ? $arrayData['message'] : ''
         ];
     }
     
