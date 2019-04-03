@@ -37,7 +37,7 @@ class NoSql
                 } else {
                     $reponse = [
                         'refresh' => true,
-                        'data' => []
+                        'data' => collect($data)->except(['next_refresh'])
                     ];
                 }
             }
