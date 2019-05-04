@@ -15,10 +15,10 @@ class DateTime
 		return $time;
 	}
 
-	public static function toInd($time)
+	public static function toInd($time, $separator = '-')
 	{
 		$carbon = Carbon::parse($time);
-		$time = $carbon->format('d-m-Y');
+		$time = $carbon->format("d{$separator}m{$separator}Y");
 		return $time;
 	}
 
