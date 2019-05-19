@@ -96,4 +96,19 @@ class DateTime
     
         return $bulan[ (int)$explode[1] ];
     }
+
+    /**
+     * FUNGSI DIBUAT UNTUK MEMISAHKAN TANGGAL, BULAN, TAHUN
+     */
+    public static function split($dateTime)
+    {
+        $date = substr($dateTime, 0, 10);
+        $explode = explode('-', $date);
+
+        return [
+            'tanggal' => $explode[2],
+            'bulan' => $explode[1],
+            'tahun' => $explode[0]
+        ];
+    }
 }
