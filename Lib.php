@@ -12,27 +12,6 @@ class Lib
         return $collection->toArray();
     }
 
-    /**
-     * Array diambil dari result data
-     */
-    public static function imageObject($array)
-    {
-        $collection = collect($array);
-        $collection = $collection->put('path', asset(''));
-        return $collection;
-    }
-    
-    /**
-     * Array diambil dari result data
-     */
-    public static function productObject($array)
-    {
-        $collection = collect($array);
-        $collection = $collection->put('slug', str_slug($array['name']));
-        $collection = $collection->put('path', asset(''));
-        return $collection;
-    }
-
     public static function codeGenerator($prefix)
     {
         return $prefix.rand(000000000, 999999999);
