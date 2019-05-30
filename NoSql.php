@@ -49,4 +49,14 @@ class NoSql
         }
         return $reponse;
     }
+
+    public function renderStatic($fileName)
+    {
+        try{
+            $data = Storage::disk('public')->get('/NoSql/'.$fileName.'.json');
+            return $data = \json_decode($data, true);
+        } catch (\Exception $e){
+            return false;
+        }
+    }
 }
