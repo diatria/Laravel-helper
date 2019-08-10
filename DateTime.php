@@ -111,4 +111,12 @@ class DateTime
             'tahun' => $explode[0]
         ];
     }
+
+    public static function diffInDays($start, $end)
+    {
+        $date = Carbon::parse($start);
+        $now = Carbon::parse($end);
+
+        return $diff = $date->diffInDays($now);
+    }
 }
