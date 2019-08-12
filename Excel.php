@@ -6,10 +6,10 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 class Excel
 {
-    public function reader($req)
+    public function reader($file)
     {
         $reader = new Xlsx();
-        $spreadsheet = $reader->load($req->fileName);
+        $spreadsheet = $reader->load($file);
         return $spreadsheet->getActiveSheet()->toArray();
     }
 }

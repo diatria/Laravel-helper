@@ -10,7 +10,9 @@ class DateTime
      */
     public static function toDefault($time)
 	{
-		$carbon = Carbon::parse($time);
+        // replace separator '/' to '-'
+        $timeReplace = str_replace('/',  '-', $time);
+		$carbon = Carbon::parse($timeReplace);
 		$time = $carbon->format('Y-m-d');
 		return $time;
 	}
@@ -110,5 +112,37 @@ class DateTime
             'bulan' => $explode[1],
             'tahun' => $explode[0]
         ];
+    }
+
+    // MENGHITUNG SELISIH JAM
+    public function diffTime($time)
+    {
+        $type = ['start', 'end'];
+
+        foreach($type as $item){
+            ${$item} = [
+                'jam' => explode(':', $time[$item])[0],
+                'menit' => explode(':', $time[$item])[1],
+            ];
+        }
+
+        $hour = ((int) $end['jam'] - (int)  $start['jam']) + 24;
+
+        // Menit
+        $varMenit = ( (int) $start['menit'] + (int) $end['menit'] );
+        if($varMenit > 60){
+            $menit = [
+                'jam' => 1,
+                'menit' => $varMenit - 60
+            ];
+        } else {
+            $menit = [
+                'jam' => 0,
+                'menit' => $varMenit
+            ];
+        }
+
+        $jam = $hour + $menit['jam'];
+        return ( $jam > 24 ? $jam - 24 : $jam ).':'.$menit['menit']; 
     }
 }
