@@ -145,4 +145,12 @@ class DateTime
         $jam = $hour + $menit['jam'];
         return ( $jam > 24 ? $jam - 24 : $jam ).':'.$menit['menit']; 
     }
+
+    public static function diffInDays($start, $end)
+    {
+        $date = Carbon::parse($start);
+        $now = Carbon::parse($end);
+
+        return $diff = $date->diffInDays($now);
+    }
 }
