@@ -30,4 +30,9 @@ class To
 
         return $data;
     }
+
+    public function toInt($number)
+    {
+        return preg_replace('/\D/', '', $number);
+    }
 }

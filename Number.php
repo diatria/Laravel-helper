@@ -7,7 +7,7 @@ class Number
 {
     public function currency($number, $prefix = "Rp ")
     {
-        return $prefix . number_format($number,2,',','.');
+        return $prefix . number_format($number,0,',','.');
     }
     
     /**

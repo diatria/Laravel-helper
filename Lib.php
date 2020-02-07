@@ -16,5 +16,4 @@ class Lib
     {
         return $prefix.rand(000000000, 999999999);
     }
-
 }

@@ -63,6 +63,7 @@ class DateTime
             return '-';
         }
         
+        $time = str_replace('/', '-', $time);
         $date = substr($time, 0, 10);
         $explode = explode('-', $date);
         
@@ -152,5 +153,19 @@ class DateTime
         $now = Carbon::parse($end);
 
         return $diff = $date->diffInDays($now);
+    }
+
+    public function replaceToTwoDigit($time)
+    {
+        $exploded = explode('/', $time);
+
+        $temp = [];
+        foreach($exploded as $item){
+            $temp[] = strlen($item) < 2 ? '0'.$item : $item;
+        }
+        // Reformat
+        // Tanggal, Bulan, Tanggal
+        // return "{$temp[2]}/{$temp[1]}/{$temp[0]}";
+        return "{$temp[0]}/{$temp[1]}/{$temp[2]}";
     }
 }
